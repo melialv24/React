@@ -1,4 +1,5 @@
 import { getHeroeById, getHeroesByOwner } from "../base-pruebas/08-imp-exp"
+import heroes from '../data/heroes'
 
 describe('Probando el 08-imp-exp', () => { 
     test('Get heroe by id debe de retornar un heroe por Id ', () => { 
@@ -18,10 +19,11 @@ describe('Probando el 08-imp-exp', () => {
     })
 
     test('Get heroe by owner ', () => { 
-        const owner = 'DC'
+        const owner = 'moco'
         const heroesFiltrados = getHeroesByOwner(owner)
-
-        owner === 'DC' ? expect(heroesFiltrados.length).toEqual(3) : expect(heroesFiltrados.length).toEqual(2)
+        expect( heroesFiltrados).toEqual( heroes.filter((heroe) => heroe.owner === owner))
+        if(owner === 'DC') expect(heroesFiltrados.length).toEqual(3)
+        if(owner === 'Marvel') expect(heroesFiltrados.length).toEqual(2)
     })
 
 })
