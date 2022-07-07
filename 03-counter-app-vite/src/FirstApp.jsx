@@ -8,7 +8,7 @@ export const FirstApp = ( { title, subTitle } ) => {
 
     return (
         <>
-            <h1> { title } </h1>
+            <div data-testid='test-title'> { title } </div>
             <p>{ subTitle }</p>
         </>
     )

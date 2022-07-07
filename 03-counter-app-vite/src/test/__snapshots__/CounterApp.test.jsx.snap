@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Prueba del counter app Debe de hacer match con el snapchot 1`] = `
+<div>
+  <h1>
+     CounterApp 
+  </h1>
+  <h2>
+     
+    10
+     
+  </h2>
+  <button>
+     +1 
+  </button>
+  <button>
+     -1 
+  </button>
+  <button>
+     Reset 
+  </button>
+</div>
+`;
