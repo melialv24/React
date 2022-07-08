@@ -16,7 +16,9 @@ exports[`Prueba del counter app Debe de hacer match con el snapchot 1`] = `
   <button>
      -1 
   </button>
-  <button>
+  <button
+    aria-label="btn-reset"
+  >
      Reset 
   </button>
 </div>
