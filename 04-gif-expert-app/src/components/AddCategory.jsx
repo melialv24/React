@@ -1,15 +1,32 @@
 import React from 'react'
+import { useState } from 'react'
 
-export const AddCategory = () => {
+export const AddCategory = ({
+    onNewCategory
+}) => {
 
-    
+    const [ inputValue, setInputValue ] = useState('Amor') 
+
+    const onInputChange = (e) => {
+        setInputValue(e.target.value)
+    }
+
+    const onSubmit = (e) => {
+        e.preventDefault()
+        if( inputValue.trim().length <= 1 ) return
+        onNewCategory( inputValue.trim() )
+        setInputValue('')
+    }
 
     return (
-        <input
-            type='text'
-            placeholder='Buscar gifs'
-
-        />
+        <form onSubmit={ onSubmit }>
+            <input
+                type='text'
+                placeholder='Buscar gifs'
+                value={inputValue}
+                onChange= {onInputChange}
+            />
+        </form>
 
     )
 }
