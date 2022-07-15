@@ -2,7 +2,7 @@ import { useFetch, useCounter } from "../hooks"
 import { Quote, LoadingQuote } from '../components'
 
 
-export const MultipleCustomHooks = () => {
+export const Layout = () => {
 
     const { counter, increment } = useCounter(1)
 
