@@ -1,4 +1,4 @@
-import fetch from 'node-fetch'
+
 
 export const getGifs = async( category ) => {
     
