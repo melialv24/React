@@ -6,7 +6,7 @@ const init = () => {
 }
 
 export const useTodos = () => {
-  
+
     const [ todos, dispatch ] = useReducer( todoReducer, [], init );
 
     useEffect(() => {
