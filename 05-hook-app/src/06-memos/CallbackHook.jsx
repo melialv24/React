@@ -7,10 +7,10 @@ export const CallbackHook = () => {
     const [counter, setCounter] = useState( 10 );
 
     const incrementFather = useCallback(
-        (value) => {
-            setCounter( (c) => c + value );
-        },
-        [],
+      (value) => {
+        setCounter( (c) => c + value );
+      },
+      [],
     );
 
     useEffect(() => {
@@ -32,5 +32,3 @@ export const CallbackHook = () => {
         </>
     )
 }
-
-//useCallback sirve para memorizar funciones y regresa uan función que yo puedo utilizar, esa función memorizada solo se va a volver a procesar cuando algo cambia 

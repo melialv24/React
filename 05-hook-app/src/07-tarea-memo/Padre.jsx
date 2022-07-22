@@ -1,6 +1,5 @@
-import React, { useCallback } from 'react'
 import { Hijo } from './Hijo'
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 
 export const Padre = () => {
 
@@ -8,11 +7,12 @@ export const Padre = () => {
     const [valor, setValor] = useState(0);
 
     const incrementar = useCallback(
-        (num) => {
-            setValor( ( valor ) => valor + num )
+        ( num ) => {
+            setValor( (oldValue) => oldValue + num )
         },
-        [],
-    )
+      [],
+    );
+       
 
 
     return (

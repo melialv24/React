@@ -1,54 +1,53 @@
-import { useEffect, useState } from "react";
-import { useForm } from "../hooks/useForm";
-import { Message } from "./Message";
+import { useEffect } from 'react';
+import { useForm } from '../hooks/useForm';
 
 
 export const FormWithCustomHook = () => {
 
-    const {  formState, onInputChange, username, email, password, onResetForm } = useForm({
+    const { formState, onInputChange, onResetForm, username, email, password } = useForm({
         username: '',
         email: '',
         password: ''
-    })
+    });
+
+    // const { username, email, password } = formState;
+  
 
     return (
         <>
-            <h1> Formulario Simple </h1>
-            <hr/>
+            <h1>Formulario con custom Hook</h1> 
+            <hr />
 
-            <input
-                type='text'
+            <input 
+                type="text" 
                 className="form-control"
                 placeholder="Username"
-                name='username'
-                value={username}
-                onChange={onInputChange}
+                name="username"
+                value={ username }
+                onChange={ onInputChange }
             />
 
-            <input
-                type='email'
+            <input 
+                type="email" 
                 className="form-control mt-2"
-                placeholder="melissa@gmail.com"
-                name='email'
-                value={email}
-                onChange={onInputChange}
+                placeholder="fernando@google.com"
+                name="email"
+                value={ email }
+                onChange={ onInputChange }
             />
 
-            <input
-                type='password'
+            <input 
+                type="password" 
                 className="form-control mt-2"
                 placeholder="Contraseña"
-                name='password'
-                value={password}
-                onChange={onInputChange}
+                name="password"
+                value={ password }
+                onChange={ onInputChange }
             />
 
-            <button onClick={ onResetForm } className="btn btn-primary mt-2">Reset</button>
 
-            {
-                username === 'strider2' && <Message/>
-            }
-            
+            <button onClick={ onResetForm } className="btn btn-primary mt-2">Borrar</button>
+
         </>
     )
 }

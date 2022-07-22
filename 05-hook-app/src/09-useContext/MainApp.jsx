@@ -1,32 +1,32 @@
-import { Routes, Route, Navigate } from 'react-router-dom'
-import { AboutPage, HomePage, LoginPage, Navbar } from './'
-import { UserProvider } from './context/UserProvider'
+import { Navigate, Route, Routes, Link } from 'react-router-dom';
+
+import { UserProvider } from './context/UserProvider';
+import { HomePage } from './HomePage';
+import { AboutPage } from './AboutPage';
+import { LoginPage } from './LoginPage';
+import { Navbar } from './Navbar';
+
 
 export const MainApp = () => {
-    return (
-        <UserProvider>
-            <h1>MainApp</h1>
-            
-            <Navbar/>
-            <hr/>
+  return (
+    <UserProvider>
+        {/* <h1>MainApp</h1> */}
+        {/* <Link to="/">Home</Link>
+        <Link to="/about">About</Link>
+        <Link to="/login">Login</Link> */}
+        <Navbar />
+        <hr />
 
-            {/** Los links se usan para sustituir los a ya que los a hacían un refresco de la página
-             * y hacía que se cargaran todas las librerías y componentes de manera innecesaria,
-             * Con los links no hay refresh solo se hace un cambio del componente
-             */}
 
-            <Routes>
-                <Route path='about' element={ <AboutPage/> } />
-                <Route path='login' element={ <LoginPage/> } />
-                <Route path='/' element={ <HomePage/> } />
+        <Routes>
+          <Route path="/" element={ <HomePage /> } />
+          <Route path="about" element={ <AboutPage /> } />
+          <Route path="login" element={ <LoginPage /> } />
 
-                {/** Redirige cuando no existe la ruta, pero deja el url malo */}
-                {/*<Route path='/*' element={<LoginPage/>}/>*/}
+          {/* <Route path="/*" element={ <LoginPage /> } /> */}
+          <Route path="/*" element={ <Navigate to="/about" /> } />
 
-                {/** Redirige y modifica la ruta al elemento que redirigimos  */}
-                <Route path='/*' element={ <Navigate to='about' /> }/>
-
-            </Routes>
-        </UserProvider>
-    )
+        </Routes>
+    </UserProvider>
+  )
 }
