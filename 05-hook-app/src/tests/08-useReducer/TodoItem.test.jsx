@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import { TodoItem } from "../../08-useReducer/TodoItem";
 
 describe("probando el todoItem", () => {
@@ -29,4 +29,39 @@ describe("probando el todoItem", () => {
     // Se espera que contenga más no sea exactamente igual a esa clase
     expect(spanElement.className).toContain("align-self-center");
   });
+
+  test('debe llamar el Toggletodo cuando se hace click', () => {
+
+    render(
+      <TodoItem
+        todo={todo}
+        onDeleteTodo={onDeleteTodoMock}
+        onToggleTodo={onToggleTodoMock}
+      />
+    );
+
+    const spanElement = screen.getByLabelText("span");
+    fireEvent.click(spanElement)
+
+    expect( onToggleTodoMock ).toHaveBeenCalledWith( todo.id )
+
+  })
+
+  test('debe llamar el onDeleteTodo cuando se hace click', () => {
+
+    render(
+      <TodoItem
+        todo={todo}
+        onDeleteTodo={onDeleteTodoMock}
+        onToggleTodo={onToggleTodoMock}
+      />
+    );
+
+    const btnDelete = screen.getByRole('button');
+    fireEvent.click(btnDelete)
+
+    expect( onDeleteTodoMock ).toHaveBeenCalledWith( todo.id )
+
+  })
+
 });
