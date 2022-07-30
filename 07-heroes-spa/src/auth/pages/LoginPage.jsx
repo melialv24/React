@@ -12,10 +12,12 @@ export const LoginPage = () => {
 
     login('Melissa Alvarez')
 
-
-    navigate('/marvel', {
-      replace: true
-    })
+    const path = localStorage.getItem('lastPath') || '/'
+      
+      navigate(path, {
+        replace: true
+      })
+ 
   }
 
   return (
