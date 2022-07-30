@@ -1,12 +1,19 @@
+import { useContext } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../auth';
 
 
 export const Navbar = () => {
 
     const navigate = useNavigate()
 
+    const {user, logout} = useContext(AuthContext)
+
     // El replace evita que la persona pueda regresar a la navegación anterior por que en teoría estamos reemplazandolo
     const onLogout = () => {
+
+        logout()
+
         navigate('/login', {
             replace: true
         })
@@ -50,7 +57,7 @@ export const Navbar = () => {
             <div className="navbar-collapse collapse w-100 order-3 dual-collapse2 d-flex justify-content-end">
                 <ul className="navbar-nav ml-auto">
                     <span className='nav-item nav-link text-info'>
-                        Melissa
+                        {user?.name}
                     </span>
 
                     <button
