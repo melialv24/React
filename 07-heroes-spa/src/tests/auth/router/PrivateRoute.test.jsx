@@ -3,6 +3,7 @@ import { PrivateRoute } from "../../../auth/router/PrivateRoute";
 
 describe("Pruebas en PrivateRoute", () => {
   test("Debe de mostrar el children si está autenticado", () => {
+    
     Storage.prototype.setItem = jest.fn();
 
     const contextValue = {
@@ -32,6 +33,6 @@ describe("Pruebas en PrivateRoute", () => {
     );
 
     expect(screen.getByText("Ruta privada")).toBeTruthy();
-    expect(localStorage.setItem).toHaveBeenCalledWith("lastPath");
+    expect(localStorage.setItem).toHaveBeenCalledWith('lastPath','/search?q=batman' );
   });
 });
