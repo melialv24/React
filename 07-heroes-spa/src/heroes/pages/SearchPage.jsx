@@ -36,7 +36,7 @@ export const SearchPage = () => {
         <div className="col-5">
           <h4>Searching</h4>
           <hr />
-          <form onSubmit={onSearchSubmit}>
+          <form onSubmit={onSearchSubmit} aria-label='form'>
             <input
               type="text"
               placeholder="Search a hero"
@@ -62,7 +62,7 @@ export const SearchPage = () => {
           )}
 
           {q.length > 0 && heroes.length === 0 && (
-            <div className="alert alert-danger">There´s no result with {q}</div>
+            <div aria-label="alertDanger" className="alert alert-danger">There´s no result with {q}</div>
           )}
 
           {/*<div className="alert alert-danger">There´s no result with {q}</div>*/}
